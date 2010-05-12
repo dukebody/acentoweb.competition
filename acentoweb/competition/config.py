@@ -1,0 +1,1 @@
+PROJECTNAME = "acentoweb.competition"
