@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 <rolemap>
-  <permissions>
+  <roles>
+    <role name="Competitor" />
+    <role name="Judge" />
+  </roles>
+  </permissions>
     <permission name="acentoweb.competition: Add Competition" acquire="True">
       <role name="Manager"/>
       <role name="Owner"/>
