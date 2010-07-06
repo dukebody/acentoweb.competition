@@ -3,14 +3,15 @@ from zope.interface import implements
 
 # Archetypes imports
 from Products.Archetypes import atapi
+from Products.ATContentTypes.content import folder
 
 # Product imports
 from acentoweb.competition.config import PROJECTNAME
 from acentoweb.competition.interfaces import ICompetition
 
-CompetitionSchema = atapi.BaseFolderSchema.copy()
+CompetitionSchema = folder.ATFolderSchema.copy()
 
-class Competition(atapi.BaseFolder):
+class Competition(folder.ATFolder):
     """An Archetype for an LibreOrganizacion application
     """
     implements(ICompetition)

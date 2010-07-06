@@ -5,5 +5,5 @@
  <object name="Video"
     meta_type="Factory-based Type Information with dynamic views"/>
  <object name="Competition"
-    meta_type="Factory-based Type Information"/>
+    meta_type="Factory-based Type Information with dynamic views"/>
 </object>
