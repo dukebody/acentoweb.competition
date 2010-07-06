@@ -26,6 +26,13 @@ class TestCase(ptc.PloneTestCase):
         def tearDown(cls):
             pass
 
+ptc.setupPloneSite(products=['acentoweb.competition'])
+
+class TestWorkflow(TestCase):
+    def test_wf_exists(self):
+        wt = self.portal.portal_workflow
+        self.failUnless('competition_workflow' in wt.objectIds())
+
 
 def test_suite():
     return unittest.TestSuite([
@@ -39,6 +46,7 @@ def test_suite():
         #    module='acentoweb.competition.mymodule',
         #    setUp=testing.setUp, tearDown=testing.tearDown),
 
+            unittest.makeSuite(TestWorkflow)
 
         # Integration tests that use PloneTestCase
         #ztc.ZopeDocFileSuite(
