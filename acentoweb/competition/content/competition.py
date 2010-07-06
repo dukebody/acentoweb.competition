@@ -8,9 +8,9 @@ from Products.Archetypes import atapi
 from acentoweb.competition.config import PROJECTNAME
 from acentoweb.competition.interfaces import ICompetition
 
-CompetitionSchema = atapi.BaseSchema.copy()
+CompetitionSchema = atapi.BaseFolderSchema.copy()
 
-class Competition(atapi.BaseContent):
+class Competition(atapi.BaseFolder):
     """An Archetype for an LibreOrganizacion application
     """
     implements(ICompetition)

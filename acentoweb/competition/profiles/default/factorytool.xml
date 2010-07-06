@@ -2,5 +2,7 @@
 <object name="portal_factory" meta_type="Plone Factory Tool">
  <factorytypes>
   <type portal_type="Competition"/>
+  <type portal_type="Photo"/>
+  <type portal_type="Video"/>
  </factorytypes>
 </object>
