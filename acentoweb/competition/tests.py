@@ -27,6 +27,14 @@ class TestWorkflow(ptc.PloneTestCase):
         wt = self.portal.portal_workflow
         self.failUnless('competition_item_workflow' in wt.objectIds())
 
+    def test_competitionitemwf_bindings(self):
+        """Check that the Photo and Video types are binded to the
+        competition_item_workflow.
+        """
+        wt = self.portal.portal_workflow
+        self.failUnless('competition_item_workflow' in wt.getChainForPortalType('Photo'))
+        self.failUnless('competition_item_workflow' in wt.getChainForPortalType('Video'))
+
 
 def test_suite():
     return unittest.TestSuite([
