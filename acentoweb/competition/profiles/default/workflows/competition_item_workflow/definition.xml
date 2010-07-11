@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<dc-workflow workflow_id="competition_workflow"
-             title="Community Workflow"
+<dc-workflow workflow_id="competition_item_workflow"
+             title="Competition Item Workflow"
              description=" - Users can create private content. When they submit it for review, they can no longer edit it. Reviewers can publish the content so it becomes visible for everybody and not editable.."
              state_variable="review_state"
              initial_state="private">
