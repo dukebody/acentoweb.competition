@@ -36,9 +36,18 @@ class TestWorkflow(ptc.PloneTestCase):
         self.failUnless('competition_item_workflow' in wt.getChainForPortalType('Video'))
 
 
+class TestMemberData(ptc.PloneTestCase):
+    def test_phoneno_present(self):
+        """Check that the Phone Number property is among the member properties.
+        """
+        md = self.portal.portal_memberdata
+        self.failIf(md.getProperty('phone_no') is None)
+
+
 def test_suite():
     return unittest.TestSuite([
-            unittest.makeSuite(TestWorkflow)
+            unittest.makeSuite(TestWorkflow),
+            unittest.makeSuite(TestMemberData),
         ])
 
 if __name__ == '__main__':
