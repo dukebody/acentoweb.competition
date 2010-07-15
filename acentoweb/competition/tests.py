@@ -22,7 +22,7 @@ setup_acentoweb_competition()
 ptc.setupPloneSite(products=['acentoweb.competition'])
 
 
-class TestWorkflow(ptc.PloneTestCase):
+class TestSetup(ptc.PloneTestCase):
     def test_wf_exists(self):
         wt = self.portal.portal_workflow
         self.failUnless('competition_item_workflow' in wt.objectIds())
@@ -36,18 +36,21 @@ class TestWorkflow(ptc.PloneTestCase):
         self.failUnless('competition_item_workflow' in wt.getChainForPortalType('Video'))
 
 
-class TestMemberData(ptc.PloneTestCase):
-    def test_phoneno_present(self):
+    def test_phoneno_exist(self):
         """Check that the Phone Number property is among the member properties.
         """
         md = self.portal.portal_memberdata
         self.failIf(md.getProperty('phone_no') is None)
 
+    def test_skinlayers_exist(self):
+        """Check that our custom skin layers are registered."""
+        ps = self.portal.portal_skins
+        self.failUnless('competition_login' in ps.objectIds())
+
 
 def test_suite():
     return unittest.TestSuite([
-            unittest.makeSuite(TestWorkflow),
-            unittest.makeSuite(TestMemberData),
+            unittest.makeSuite(TestSetup),
         ])
 
 if __name__ == '__main__':
