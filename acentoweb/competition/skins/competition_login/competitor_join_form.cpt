@@ -165,7 +165,7 @@
 
       <div class="field"
            tal:define="error errors/phone_no | nothing;
-                       location request/phone_no | nothing;"
+                       phone_no request/phone_no | nothing;"
            tal:attributes="class python:test(error, 'field error', 'field')">
 
         <label for="phone_no"
