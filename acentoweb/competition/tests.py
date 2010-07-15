@@ -45,7 +45,7 @@ class TestSetup(ptc.PloneTestCase):
     def test_skinlayers_exist(self):
         """Check that our custom skin layers are registered."""
         ps = self.portal.portal_skins
-        self.failUnless('competition_login' in ps.objectIds())
+        self.failUnless('competition_templates' in ps.objectIds())
 
 
 def test_suite():
