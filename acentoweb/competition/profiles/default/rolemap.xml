@@ -11,5 +11,23 @@
       <role name="Contributor"/>
       <role name="Member"/>
     </permission>
+    <permission name="Add portal content" acquire="True">
+      <role name="Manager"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+      <role name="Competitor"/>
+    </permission>
+    <permission name="ATContentTypes: Add Image" acquire="True">
+      <role name="Manager"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+      <role name="Competitor"/>
+    </permission>
+    <permission name="ATContentTypes: Add File" acquire="True">
+      <role name="Manager"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+      <role name="Competitor"/>
+    </permission>
   </permissions>
 </rolemap>
