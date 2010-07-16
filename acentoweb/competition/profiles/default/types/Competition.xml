@@ -17,7 +17,7 @@
  </property>
  <property name="allow_discussion">False</property>
 
- <property name="default_view">folder_listing</property>
+ <property name="default_view">competition_view</property>
  <property name="view_methods">
   <element value="competition_view"/>
   <element value="folder_summary_view"/>
