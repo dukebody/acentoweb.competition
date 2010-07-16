@@ -2,5 +2,11 @@
               xmlns:browser="http://namespaces.zope.org/browser"
               i18n_domain="acentoweb.competition" >
 
+  <browser:page
+      for="acentoweb.competition.interfaces.ICompetition"
+      class=".signup_competition.SignUp"
+      name="signup-competition"
+      permission="zope2.View"
+      />
 
 </configure>
