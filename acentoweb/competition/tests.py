@@ -22,8 +22,20 @@ ptc.setupPloneSite(products=['acentoweb.competition'])
 
 class TestSetup(ptc.PloneTestCase):
     def test_wf_exists(self):
+        """Check that our custom workflows are present.
+        """
         wt = self.portal.portal_workflow
         self.failUnless('competition_item_workflow' in wt.objectIds())
+        self.failUnless('competition_workflow' in wt.objectIds())
+
+
+    def test_competitionwf_bindings(self):
+        """Check that the Competition types is binded to the
+        competition_workflow.
+        """
+        wt = self.portal.portal_workflow
+        self.failUnless('competition_workflow' in wt.getChainForPortalType('Competition'))
+
 
     def test_competitionitemwf_bindings(self):
         """Check that the Photo and Video types are binded to the
