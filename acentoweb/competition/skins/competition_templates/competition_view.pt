@@ -180,7 +180,7 @@
         <metal:subtopics use-macro="here/atct_topic_view/macros/folderlisting_macro" />
 
         <form action="@@signup-competition" method="post"
-              tal:condition="python: not context.get_local_roles_for_userid(member.getUserId())">
+              tal:condition="python: not context.get_local_roles_for_userid(member.getId())">
           <input type="submit"
                  name="form.button.signup"
 
