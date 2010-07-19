@@ -23,7 +23,7 @@ class SignUp(BrowserView):
 
             mt = getToolByName(self.context, 'portal_membership')
             member = mt.getAuthenticatedMember()
-            userid = member.getUserId()
+            userid = member.getId()
 
             if 'Competitor' not in self.context.get_local_roles_for_userid(userid):
                 self.context.manage_setLocalRoles(userid, ['Competitor',])
