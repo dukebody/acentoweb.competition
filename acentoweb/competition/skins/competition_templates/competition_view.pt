@@ -179,8 +179,15 @@
 
         <metal:subtopics use-macro="here/atct_topic_view/macros/folderlisting_macro" />
 
+        <p tal:condition="isAnon">
+          <a tal:attributes="href
+             string:${portal_url}/competitor_join_form">
+            You need to register to be able to participate in this competition.
+          </a>
+        </p>
+
         <form action="@@signup-competition" method="post"
-              tal:condition="python: not context.get_local_roles_for_userid(member.getId())">
+              tal:condition="python: not context.get_local_roles_for_userid(member.getId()) and not isAnon and not checkPermission('Review portal content', context)">
           <input type="submit"
                  name="form.button.signup"
 
