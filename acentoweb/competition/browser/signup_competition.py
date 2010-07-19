@@ -24,13 +24,12 @@ class SignUp(BrowserView):
             mt = getToolByName(self.context, 'portal_membership')
             member = mt.getAuthenticatedMember()
             userid = member.getId()
-
-            if 'Competitor' not in self.context.get_local_roles_for_userid(userid):
+            can_participate = not mt.checkPermission('Review portal content', self.context)
+            has_already_signed_up = 'Competitor' in self.context.get_local_roles_for_userid(userid)
+            
+            if can_participate and not has_already_signed_up:
                 self.context.manage_setLocalRoles(userid, ['Competitor',])
 
                 self.context.plone_utils.addPortalMessage(_(u"You've just signed up in the competition!"))
-
-            else:
-                self.context.plone_utils.addPortalMessage(_(u"You've already signed up in the competition!"))
 
         return self.request.RESPONSE.redirect(self.context.absolute_url())
