@@ -1,0 +1,116 @@
+Login as the portal owner, create a competition and publish it::
+
+    >>> self.loginAsAdmin()
+    >>> browser = self.browser
+    >>> browser.open(self.portal.absolute_url() + "/createObject?type_name=Competition")
+    >>> browser.getControl(name="title").value = 'Test Competition'
+    >>> browser.getControl(name="form.button.save").click()
+    >>> competition = getattr(self.portal, "test-competition")
+    >>> browser.open(competition.absolute_url() + "/content_status_modify?workflow_action=open")
+
+Next, we set the ``judge`` user as the reviewer of the the competition just created::
+
+    >>> competition = getattr(self.portal, "test-competition")
+    >>> competition.manage_setLocalRoles("judge", ["Reviewer",])
+
+And login as the ``judge``::
+    >>> self.loginAsUser("judge")
+
+If we look at the competition, we should see a text indicating that we
+cannot sign up::
+
+    >>> browser.open(competition.absolute_url())
+    >>> "You can't sign up in this competition because you're member of the judge" in browser.contents
+    True
+
+If we login now as a competitor, we should see the sign up button::
+
+    >>> self.logout()
+    >>> self.loginAsUser('competitor1')
+    >>> browser.open(competition.absolute_url())
+    >>> "Sign up!" in browser.contents
+    True
+
+After clicking it, we should see a message indicating we've just
+signed up, and the Photo and Video items in the "Add items" dropdown::
+
+    >>> browser.getControl(name='form.button.signup').click()
+    >>> "You've just signed up in the competition!" in browser.contents
+    True
+    >>> "A photo, to be submitted to a competition." in browser.contents
+    True
+    >>> "A video to be submitted to a competition." in browser.contents
+    True
+
+But not the "contents" nor the "sharing" tabs::
+
+    >>> "Contents" in browser.contents
+    False
+    >>> "@@sharing" in browser.contents
+    False
+
+The competitor now creates a Video in the competition. 
+
+    >>> browser.getLink(id="video").click()
+
+For the  purposes of this test, the Video will be a text file instead::
+
+    >>> browser.getControl(name="title").value = 'video1'
+    >>> import cStringIO
+    >>> text = cStringIO.StringIO('File contents')
+    >>> browser.getControl(name="file_file").add_file(text, 'text/plain', 'test1.txt')
+    >>> browser.getControl(name="form.button.save").click()
+
+And a second one::
+
+    >>> browser.open(competition.absolute_url())
+    >>> browser.getLink(id="video").click()
+    >>> browser.getControl(name="title").value = 'video2'
+    >>> text = cStringIO.StringIO('File contents 2')
+    >>> browser.getControl(name="file_file").add_file(text, 'text/plain', 'test2.txt')
+    >>> browser.getControl(name="form.button.save").click()
+
+This first competitor can see both elements:
+
+    >>> browser.open(competition.absolute_url())
+    >>> "test1.txt" in browser.contents
+    True   
+    >>> "test2.txt" in browser.contents
+    True
+
+And submits this second one to the competition for the judge to
+evaluate it::
+
+    >>> browser.getLink("video2").click()
+    >>> browser.getLink(id="workflow-transition-submit").click()
+
+If we login as the second competitor user we can't see neither of the
+first one created items::
+
+    >>> self.loginAsUser("competitor2")
+    >>> browser.open(competition.absolute_url())
+    >>> "test1.txt" in browser.contents
+    False
+    >>> "test2.txt" in browser.contents
+    False
+
+Not even after signing in himself::
+
+    >>> browser.getControl(name='form.button.signup').click()
+    >>> "test1.txt" in browser.contents
+    False
+    >>> "test2.txt" in browser.contents
+    False
+
+Now we sign up as the judge user::
+
+    >>> self.loginAsUser("judge")
+
+We should see is the one submitted by the first competitor, but not
+the private one::
+
+    >>> browser.open(competition.absolute_url())
+    >>> "test1.txt" in browser.contents
+    False
+    >>> "test2.txt" in browser.contents
+    True
