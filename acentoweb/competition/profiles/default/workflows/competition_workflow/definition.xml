@@ -33,7 +33,11 @@
   </permission-map>
   <permission-map name="List folder contents"
                   acquired="False">
-   <permission-role>Anonymous</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Contributor</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="False">
@@ -108,7 +112,11 @@
   </permission-map>
   <permission-map name="List folder contents"
                   acquired="False">
-   <permission-role>Anonymous</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Contributor</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="False">
