@@ -186,6 +186,10 @@
           </a>
         </p>
 
+        <p tal:condition="python: checkPermission('Review portal content', context)">
+          You can't sign up in this competition because you're member of the judge.
+        </p>
+
         <form action="@@signup-competition" method="post"
               tal:condition="python: not context.get_local_roles_for_userid(member.getId()) and not isAnon and not checkPermission('Review portal content', context)">
           <input type="submit"
