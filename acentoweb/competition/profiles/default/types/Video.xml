@@ -2,7 +2,7 @@
 <object name="Video"
    meta_type="Factory-based Type Information with dynamic views"
    i18n:domain="plone" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">File</property>
+ <property name="title" i18n:translate="">Video</property>
  <property name="description"
       i18n:translate="">A video to be submitted to a competition.</property>
  <property name="content_icon">file_icon.gif</property>
