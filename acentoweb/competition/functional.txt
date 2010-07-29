@@ -23,6 +23,14 @@ cannot sign up::
     >>> "You can't sign up in this competition because you're member of the judge" in browser.contents
     True
 
+The 'Print this' and 'Send this' links are not present in the
+competition:
+
+    >>> 'sendto_form' not in browser.contents
+    True
+    >>> 'javascript:this.print()' not in browser.contents
+    True
+
 If we login now as a competitor, we should see the sign up button::
 
     >>> self.logout()
