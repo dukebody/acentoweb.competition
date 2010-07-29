@@ -128,8 +128,8 @@
    <permission-role>Anonymous</permission-role>
   </permission-map>
  </state>
- <transition transition_id="close" title="" 
-             new_state="" trigger="USER"
+ <transition transition_id="close" title="Close"
+             new_state="closed" trigger="USER"
              before_script="" after_script="">
    <description>Close the competition so no more works are accepted.</description>
   <action url="%(content_url)s/content_status_modify?workflow_action=close"
