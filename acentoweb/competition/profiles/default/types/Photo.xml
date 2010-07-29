@@ -39,12 +39,6 @@
   <permission value="Modify portal content"/>
   <permission value="Review portal content"/>
  </action>
- <action title="Transform" action_id="transform" category="object"
-    condition_expr="object/hasPIL"
-    url_expr="string:${object_url}/atct_image_transform" visible="True"
-    i18n:attributes="title">
-  <permission value="Modify portal content"/>
- </action>
  <action title="Download" action_id="download" category="object"
     condition_expr="member" url_expr="string:${object_url}/download"
     visible="False" i18n:attributes="title">

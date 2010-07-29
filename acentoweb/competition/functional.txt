@@ -61,35 +61,40 @@ The competitor now creates a Video in the competition.
 
     >>> browser.getLink(id="video").click()
 
-For the  purposes of this test, the Video will be a text file instead::
+For the purposes of this test, the Video will be a text file instead::
 
-    >>> browser.getControl(name="title").value = 'video1'
+    >>> browser.getControl(name="title").value = 'aVideo'
     >>> import cStringIO
-    >>> text = cStringIO.StringIO('File contents')
-    >>> browser.getControl(name="file_file").add_file(text, 'text/plain', 'test1.txt')
+    >>> text = cStringIO.StringIO('Video contents')
+    >>> browser.getControl(name="file_file").add_file(text, 'text/plain', 'test_video.avi')
     >>> browser.getControl(name="form.button.save").click()
 
-And a second one::
+And a Photo::
 
     >>> browser.open(competition.absolute_url())
-    >>> browser.getLink(id="video").click()
-    >>> browser.getControl(name="title").value = 'video2'
-    >>> text = cStringIO.StringIO('File contents 2')
-    >>> browser.getControl(name="file_file").add_file(text, 'text/plain', 'test2.txt')
+    >>> browser.getLink(id="photo").click()
+    >>> browser.getControl(name="title").value = 'aPhoto'
+    >>> text = cStringIO.StringIO('Photo contents')
+    >>> browser.getControl(name="image_file").add_file(text, 'text/plain', 'test_image.jpg')
     >>> browser.getControl(name="form.button.save").click()
+
+The "Transform" tab is not present for Photos::
+
+    >>> 'atct_image_transform' in browser.contents
+    False
 
 This first competitor can see both elements:
 
     >>> browser.open(competition.absolute_url())
-    >>> "test1.txt" in browser.contents
+    >>> "test_video.avi" in browser.contents
     True   
-    >>> "test2.txt" in browser.contents
+    >>> "test_image.jpg" in browser.contents
     True
 
 And submits this second one to the competition for the judge to
 evaluate it::
 
-    >>> browser.getLink("video2").click()
+    >>> browser.getLink("aVideo").click()
     >>> browser.getLink(id="workflow-transition-submit").click()
 
 If we login as the second competitor user we can't see neither of the
@@ -97,17 +102,17 @@ first one created items::
 
     >>> self.loginAsUser("competitor2")
     >>> browser.open(competition.absolute_url())
-    >>> "test1.txt" in browser.contents
+    >>> "test_video.avi" in browser.contents
     False
-    >>> "test2.txt" in browser.contents
+    >>> "test_image.jpg" in browser.contents
     False
 
 Not even after signing in himself::
 
     >>> browser.getControl(name='form.button.signup').click()
-    >>> "test1.txt" in browser.contents
+    >>> "test_video.avi" in browser.contents
     False
-    >>> "test2.txt" in browser.contents
+    >>> "test_image2.jpg" in browser.contents
     False
 
 Now we sign up as the judge user::
@@ -118,7 +123,7 @@ We should see is the one submitted by the first competitor, but not
 the private one::
 
     >>> browser.open(competition.absolute_url())
-    >>> "test1.txt" in browser.contents
-    False
-    >>> "test2.txt" in browser.contents
+    >>> "test_video.avi" in browser.contents
     True
+    >>> "test_image.jpg" in browser.contents
+    False
