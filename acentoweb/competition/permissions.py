@@ -16,4 +16,4 @@ for atype in  types:
 
 # Controls access to the "sharing" page
 DelegateRoles = "Sharing page: Delegate roles"
-setDefaultRoles(DelegateRoles, ('Manager', 'Editor', 'Reviewer',))
+setDefaultRoles(DelegateRoles, ('Manager', 'Editor',))
