@@ -31,9 +31,14 @@ competition:
     >>> 'javascript:this.print()' not in browser.contents
     True
 
-Nor are is the 'Sharing' page for the judge::
+Nor is the 'Sharing' page for the judge::
 
     >>> '@@sharing' in browser.contents
+    False
+
+The judge can't trigger any workflow transition::
+
+    >>> 'content_status_history' in browser.contents
     False
 
 If we login now as a competitor, we should see the sign up button::
