@@ -26,6 +26,8 @@ setup(name='acentoweb.competition',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
+          'Plone',
+          'plone.contentratings',
       ],
       entry_points="""
       # -*- Entry points: -*-
