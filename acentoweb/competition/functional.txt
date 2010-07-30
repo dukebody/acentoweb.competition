@@ -26,17 +26,17 @@ cannot sign up::
 The 'Print this' and 'Send this' links are not present in the
 competition:
 
-    >>> 'sendto_form' not in browser.contents
-    True
-    >>> 'javascript:this.print()' not in browser.contents
-    True
+    >>> 'sendto_form' in browser.contents
+    False
+    >>> 'javascript:this.print()' in browser.contents
+    False
 
 Nor is the 'Sharing' page for the judge::
 
     >>> '@@sharing' in browser.contents
     False
 
-The judge can't trigger any workflow transition::
+The judge can't trigger any workflow transition on the competition::
 
     >>> 'content_status_history' in browser.contents
     False
