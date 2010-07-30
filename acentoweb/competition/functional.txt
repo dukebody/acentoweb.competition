@@ -137,3 +137,11 @@ the private one::
     True
     >>> "test_image.jpg" in browser.contents
     False
+
+If the judge  cannot trigger any workflow transition on the video item
+(only users who can modify the item now, in this case, the ones with
+the Manager or Editor role, can trigger them)::
+
+    >>> browser.getLink("aVideo").click()
+    >>> 'content_status_history' in browser.contents
+    False

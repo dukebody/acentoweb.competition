@@ -85,6 +85,7 @@
   <permission-map name="Modify portal content"
                   acquired="False">
    <permission-role>Manager</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="View" acquired="False">
    <permission-role>Anonymous</permission-role>
@@ -99,7 +100,7 @@
   <action url="%(content_url)s/content_status_modify?workflow_action=publish"
           category="workflow">Publish</action>
   <guard>
-   <guard-permission>Review portal content</guard-permission>
+   <guard-permission>Modify portal content</guard-permission>
   </guard>
  </transition>
  <transition transition_id="reject"
@@ -111,7 +112,7 @@
   <action url="%(content_url)s/content_status_modify?workflow_action=reject"
           category="workflow">Send back</action>
   <guard>
-   <guard-permission>Review portal content</guard-permission>
+   <guard-permission>Modify portal content</guard-permission>
   </guard>
  </transition>
  <transition transition_id="submit"
