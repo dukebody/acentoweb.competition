@@ -2,4 +2,7 @@
 <metadata>
   <description>Profile for the acentoweb.competition product.</description>
   <version>1</version>
+  <dependencies>
+    <dependency>profile-plone.contentratings:default</dependency>
+  </dependencies>
 </metadata>
