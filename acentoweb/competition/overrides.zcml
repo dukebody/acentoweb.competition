@@ -6,7 +6,7 @@
         name="plone.belowcontenttitle.documentbyline"
         manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
         class="plone.app.layout.viewlets.content.DocumentBylineViewlet"
-        permission="cmf.ManagePortal"
+        permission="cmf.ModifyPortalContent"
         />
 
 </configure>
