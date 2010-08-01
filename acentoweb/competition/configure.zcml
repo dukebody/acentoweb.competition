@@ -29,7 +29,7 @@
       for="Products.CMFCore.interfaces.IDynamicType"
       title="Competition Items Rating"
       name="competition_items_rating"
-      view_name="ratings_view"
+      view_name="competition_rating_view"
       read_expr="python:checkPermission('Modify portal content', context)"
       write_expr="python:checkPermission('Review portal content', context)"
       />

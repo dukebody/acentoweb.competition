@@ -9,4 +9,13 @@
       permission="zope2.View"
       />
 
+  <browser:page
+      for="contentratings.interfaces.IUserRating"
+      name="competition_rating_view"
+      class=".competitionrating.RatingView"
+      template="stars.pt"
+      permission="zope.Public"
+      allowed_attributes="rate remove_rating"
+      />
+
 </configure>
