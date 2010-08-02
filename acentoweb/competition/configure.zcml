@@ -30,8 +30,19 @@
       title="Competition Items Rating"
       name="competition_items_rating"
       view_name="competition_rating_view"
-      read_expr="python:checkPermission('Modify portal content', context)"
-      write_expr="python:checkPermission('Review portal content', context)"
       />
+
+  <adapter
+      factory=".ratingmanager.RatingManager"
+      for="contentratings.interfaces.IRatingCategory
+           Products.ATContentTypes.interface.image.IATImage"
+      />
+
+  <adapter
+      factory=".ratingmanager.RatingManager"
+      for="contentratings.interfaces.IRatingCategory
+           Products.ATContentTypes.interface.file.IATFile"
+      />
+
 
 </configure>

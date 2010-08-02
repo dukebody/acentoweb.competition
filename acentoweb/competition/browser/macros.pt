@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone.z3cform"
+      tal:omit-tag="">
+
+  <head></head>
+
+  <body>
+    <h2>List of submitted works and their ratings</h2>
+    <div class="ratings-list" metal:define-macro="ratings-list">
+      <div tal:repeat="userrating context/@@competition-ratings-macros/getUserRatings">
+        <a style="font-weight:bold"
+           tal:attributes="href userrating/context/absolute_url">
+          <span tal:replace="userrating/context/Title">Work title</span></a> &mdash;
+        <span tal:replace="userrating/averageRating">Average rating</span>
+        <table>
+          <th>Judge</th><th>Rating</th>
+          <tr tal:repeat="rating userrating/all_user_ratings">
+            <td tal:content="rating/userid">user id</td>
+            <td tal:content="rating">rating</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </body>
+
+</html>

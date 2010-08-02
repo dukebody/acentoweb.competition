@@ -199,6 +199,10 @@
           <input tal:replace="structure context/@@authenticator/authenticator" />
         </form>
 
+        <tal:results tal:condition="python: wf_state == 'closed'">
+        <metal:block metal:use-macro="context/@@competition-ratings-macros/ratings-list" />
+        </tal:results>
+
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
     </metal:main-macro>

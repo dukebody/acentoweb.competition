@@ -18,4 +18,13 @@
       allowed_attributes="rate remove_rating"
       />
 
+  <browser:page
+      name="competition-ratings-macros"
+      for="acentoweb.competition.interfaces.ICompetition"
+      class=".macros.RatingsMacros"
+      template="macros.pt"
+      permission="zope.Public"
+      />
+
+
 </configure>
