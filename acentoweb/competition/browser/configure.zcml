@@ -19,12 +19,11 @@
       />
 
   <browser:page
-      name="competition-ratings-macros"
+      name="results"
       for="acentoweb.competition.interfaces.ICompetition"
-      class=".macros.RatingsMacros"
-      template="macros.pt"
+      class="acentoweb.competition.browser.results.Results"
+      template="results.pt"
       permission="zope.Public"
       />
-
 
 </configure>

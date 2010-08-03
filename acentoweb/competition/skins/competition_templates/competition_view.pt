@@ -49,8 +49,14 @@
         </p>
 
         <tal:results tal:condition="python: wf_state == 'closed'">
-        <metal:block metal:use-macro="context/@@competition-ratings-macros/ratings-list" />
+          <p>This competition is closed! See the
+            <a tal:attributes="href string:${context/absolute_url}/@@results">results</a>.
+          </p>
         </tal:results>
+
+        <tal:submit tal:condition="python: wf_state == 'open'">
+          <p>This competition is open and accepting new works.</p>
+        </tal:submit>
 
         <div metal:define-macro="text-field-view"
              id="parent-fieldname-text" class="stx"

@@ -1,12 +1,10 @@
 from zope.publisher.browser import BrowserView
 from zope.component import getAdapter
 
-from Products.CMFCore.utils import getToolByName
-
 from contentratings.interfaces import IUserRating
 
 
-class RatingsMacros(BrowserView):
+class Results(BrowserView):
 
     def __getitem__(self, key):
         return self.index.macros[key]
