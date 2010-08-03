@@ -7,12 +7,12 @@
 
   <head></head>
 
-  <body>
-    <h2>List of submitted works and their ratings</h2>
-    <div class="ratings-list" metal:define-macro="ratings-list">
+  <body metal:define-macro="ratings-list">
+    <h3>List of submitted works and their ratings</h3>
+    <div class="ratings-list">
       <div tal:repeat="userrating context/@@competition-ratings-macros/getUserRatings">
         <a style="font-weight:bold"
-           tal:attributes="href userrating/context/absolute_url">
+           tal:attributes="href string:${userrating/context/absolute_url}/view">
           <span tal:replace="userrating/context/Title">Work title</span></a> &mdash;
         <span tal:replace="userrating/averageRating">Average rating</span>
         <table>
@@ -22,6 +22,7 @@
             <td tal:content="rating">rating</td>
           </tr>
         </table>
+        <br />
       </div>
     </div>
 
