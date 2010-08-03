@@ -16,4 +16,4 @@ class RatingsMacros(BrowserView):
         their ratings info.
         """
         works = self.context.getFolderContents(contentFilter={'review_state':'published'}, full_objects=True)
-        return [getAdapter(w, IUserRating, name=u'competition_items_rating') for w in works]
+        return sorted([getAdapter(w, IUserRating, name=u'competition_items_rating') for w in works], cmp=lambda x, y: cmp(x.averageRating, y.averageRating) , reverse=True)
