@@ -44,3 +44,9 @@ class RatingManager(PloneRatingCategoryAdapter):
         can_modify = self.mtool.checkPermission('Modify portal content', self.context)
         is_owner = 'Owner' in self.context.get_local_roles_for_userid(userid)
         return can_modify and not is_owner
+
+    def remove_rating(self, username):
+        """Remove the rating for a given user, checking that the
+        user can write first."""
+        assert self.can_write
+        self.storage.remove_rating(username)
