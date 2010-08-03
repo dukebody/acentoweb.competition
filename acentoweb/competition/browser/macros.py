@@ -15,5 +15,5 @@ class RatingsMacros(BrowserView):
         """Return the list of works submitted to the competition with
         their ratings info.
         """
-        works = self.context.listFolderContents()
+        works = self.context.getFolderContents(contentFilter={'review_state':'published'}, full_objects=True)
         return [getAdapter(w, IUserRating, name=u'competition_items_rating') for w in works]
