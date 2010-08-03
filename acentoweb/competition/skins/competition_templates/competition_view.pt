@@ -28,6 +28,26 @@
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
+        <p tal:condition="python: checkPermission('Review portal content', context) and wf_state == 'open'">
+          You can't sign up in this competition because you're member of the judge.
+        </p>
+
+        <form action="@@signup-competition" method="post"
+              tal:condition="python: not 'Competitor' in context.get_local_roles_for_userid(member.getId()) and not isAnon and not checkPermission('Review portal content', context) and wf_state == 'open'">
+          Do you want to participate in this competition? Please 
+          <input type="submit"
+                 name="form.button.signup"
+                 value="Sign up!" />
+          <input tal:replace="structure context/@@authenticator/authenticator" />
+        </form>
+
+        <p tal:condition="isAnon">
+          <a tal:attributes="href
+             string:${portal_url}/competitor_join_form">
+            You need to register to be able to participate in this competition.
+          </a>
+        </p>
+
         <tal:results tal:condition="python: wf_state == 'closed'">
         <metal:block metal:use-macro="context/@@competition-ratings-macros/ratings-list" />
         </tal:results>
@@ -182,26 +202,6 @@
         </metal:listingmacro>
 
         <metal:subtopics use-macro="here/atct_topic_view/macros/folderlisting_macro" />
-
-        <p tal:condition="isAnon">
-          <a tal:attributes="href
-             string:${portal_url}/competitor_join_form">
-            You need to register to be able to participate in this competition.
-          </a>
-        </p>
-
-        <p tal:condition="python: checkPermission('Review portal content', context)">
-          You can't sign up in this competition because you're member of the judge.
-        </p>
-
-        <form action="@@signup-competition" method="post"
-              tal:condition="python: not context.get_local_roles_for_userid(member.getId()) and not isAnon and not checkPermission('Review portal content', context)">
-          <input type="submit"
-                 name="form.button.signup"
-
-                 value="Sign up!" />
-          <input tal:replace="structure context/@@authenticator/authenticator" />
-        </form>
 
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
