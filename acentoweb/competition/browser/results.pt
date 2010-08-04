@@ -35,7 +35,7 @@
             <div tal:repeat="userrating view/getUserRatings">
               <a style="font-weight:bold"
                  tal:attributes="href string:${userrating/context/absolute_url}/view">
-                <span tal:replace="userrating/context/Title">Work title</span></a> &mdash;
+                <span tal:replace="userrating/context/Title">Work title</span></a> (<span tal:replace="userrating/context/portal_type" />) &mdash;
               <span tal:replace="userrating/averageRating">Average rating</span>
               <table>
                 <th>Judge</th><th>Rating</th>
