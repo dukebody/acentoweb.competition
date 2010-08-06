@@ -4,7 +4,7 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="here/main_template/macros/master"
-      i18n:domain="plone">
+      i18n:domain="competition">
 
 <body>
 
@@ -28,34 +28,36 @@
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
-        <p tal:condition="python: checkPermission('Review portal content', context) and wf_state == 'open'">
+        <p tal:condition="python: checkPermission('Review portal content', context) and wf_state == 'open'" i18n:translate="">
           You can't sign up in this competition because you're member of the judge.
         </p>
 
         <form action="@@signup-competition" method="post"
               tal:condition="python: not 'Competitor' in context.get_local_roles_for_userid(member.getId()) and not isAnon and not checkPermission('Review portal content', context) and wf_state == 'open'">
-          Do you want to participate in this competition? Please 
+          <span i18n:translate="">Do you want to participate in this competition? Please, </span> 
           <input type="submit"
                  name="form.button.signup"
-                 value="Sign up!" />
+                 value="Sign up!"
+                 i18n:attributes="value" />
           <input tal:replace="structure context/@@authenticator/authenticator" />
         </form>
 
         <p tal:condition="python: isAnon and wf_state == 'open'">
           <a tal:attributes="href
-             string:${portal_url}/competitor_join_form">
+             string:${portal_url}/competitor_join_form"
+              i18n:translate="">
             You need to register to be able to participate in this competition.
           </a>
         </p>
 
         <tal:results tal:condition="python: wf_state == 'closed'">
-          <p>This competition is closed! See the
-            <a tal:attributes="href string:${context/absolute_url}/@@results">results</a>.
+          <p i18n:translate="">This competition is closed! See the
+            <span i18n:name="results"><a tal:attributes="href string:${context/absolute_url}/@@results" i18n:translate="">results</a></span>.
           </p>
         </tal:results>
 
         <tal:submit tal:condition="python: wf_state == 'open'">
-          <p>This competition is open and accepting new works.</p>
+          <p i18n:translate="">This competition is open and accepting new works.</p>
         </tal:submit>
 
         <div metal:define-macro="text-field-view"

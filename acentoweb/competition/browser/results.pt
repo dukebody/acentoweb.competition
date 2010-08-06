@@ -4,7 +4,7 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="here/main_template/macros/master"
-      i18n:domain="plone">
+      i18n:domain="competition">
 
 <body>
 
@@ -27,18 +27,18 @@
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
-        <p>Go back to the <a tal:attributes="href context/absolute_url">competition</a>.</p>
+        <p i18n:translate="">Go back to the <span i18n:name="competition"><a tal:attributes="href context/absolute_url" i18n:translate="">competition</a></span>.</p>
 
         <tal:results tal:condition="python: wf_state == 'closed'">
-          <h3>List of submitted works and their ratings</h3>
+          <h3 i18n:translate="">List of submitted works and their ratings</h3>
           <div class="ratings-list">
             <div tal:repeat="userrating view/getUserRatings">
               <a style="font-weight:bold"
                  tal:attributes="href string:${userrating/context/absolute_url}/view">
                 <span tal:replace="userrating/context/Title">Work title</span></a> (<span tal:replace="userrating/context/portal_type" />) &mdash;
-              <span tal:replace="userrating/averageRating">Average rating</span>
+              <span i18n:translate="">Final Score:</span> <span tal:replace="userrating/averageRating">Average rating</span>
               <table>
-                <th>Judge</th><th>Rating</th>
+                <th i18n:translate="">Judge</th><th i18n:translate="">Rating</th>
                 <tr tal:repeat="rating userrating/all_user_ratings">
                   <td tal:content="rating/userid">user id</td>
                   <td tal:content="rating">rating</td>
@@ -50,7 +50,7 @@
         </tal:results>
 
         <tal:noresultsyet tal:condition="python: wf_state != 'closed'">
-          <p>This competition is still open.</p>
+          <p i18n:translate="">This competition is still open.</p>
         </tal:noresultsyet>
 
         <div tal:replace="structure provider:plone.belowcontentbody" />

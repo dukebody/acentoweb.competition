@@ -1,0 +1,83 @@
+# Spanish (es) translation of plone sentences of acentoweb.competition product.
+# Acento Web, S.L. <correo@acentoweb.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1\n"
+"POT-Creation-Date: 2010-08-05 13:26+0000\n"
+"PO-Revision-Date: 2010-08-05 13:26+0000\n"
+"Last-Translator: Acento Web, S.L. <correo@acentoweb.com>\n"
+"Language-Team: Spanish <correo@acentoweb.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=0\n"
+"Language-Code: es\n"
+"Language-Name: Spanish\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+# Competition form
+
+#. Default: "Enter your location"
+msgid "help_location_creation"
+msgstr "Introduzca su localidad"
+
+#. Default: "Phone"
+msgid "label_phone_no"
+msgstr "Teléfono"
+
+#. Default: "Enter your phone number"
+msgid "help_phone_no_creation"
+msgstr "Introduzca su número de teléfono"
+
+# Competition item
+
+msgid "Competition"
+msgstr "Concurso"
+
+# Competition states
+
+msgid "Open"
+msgstr "Abierto"
+
+msgid "Open the competition to start accepting works."
+msgstr "Abrir el concurso para iniciar la aceptación de trabajos."
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "Close the competition so no more works are accepted."
+msgstr "Cerrar el concurso para no aceptar más trabajos."
+
+msgid "Closed"
+msgstr "Cerrado"
+
+# Competition work types
+
+msgid "Photo"
+msgstr "Fotografía"
+
+msgid "A photo, to be submitted to a competition."
+msgstr "Una fotografía, para ser enviada a un concurso."
+
+msgid "Video"
+msgstr "Vídeo"
+
+msgid "A video to be submitted to a competition."
+msgstr "Un vídeo para ser enviado a un concurso"
+
+# Photo/Video workflow
+
+msgid "Submit to the competition"
+msgstr "Enviar al concurso"
+
+msgid "Submit your item for the judge to review and rate it."
+msgstr "Envía tu trabajo para que el Jurado pueda revisarlo y puntuarlo."
+
+msgid "Competing"
+msgstr "Concursando"
+
+msgid "your_rating"
+msgstr "Tu puntuación"
+
+
