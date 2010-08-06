@@ -41,7 +41,7 @@
           <input tal:replace="structure context/@@authenticator/authenticator" />
         </form>
 
-        <p tal:condition="isAnon">
+        <p tal:condition="python: isAnon and wf_state == 'open'">
           <a tal:attributes="href
              string:${portal_url}/competitor_join_form">
             You need to register to be able to participate in this competition.
