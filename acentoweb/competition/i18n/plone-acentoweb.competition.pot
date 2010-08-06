@@ -70,3 +70,9 @@ msgstr ""
 
 msgid "Submit to the competition"
 msgstr ""
+
+msgid "Submit your item for the judge to review and rate it."
+msgstr ""
+
+msgid "Competing"
+msgstr ""

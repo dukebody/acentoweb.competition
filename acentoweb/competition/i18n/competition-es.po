@@ -96,9 +96,3 @@ msgstr "Leer más..."
 #: acentoweb.competition/acentoweb/competition/skins/competition_templates/competition_view.pt:56
 msgid "results"
 msgstr "resultados"
-
-#: acentoweb.competition/acentoweb/competition/browser/stars.pt:22
-msgid "votes"
-msgstr "votos"
-
-

@@ -76,8 +76,3 @@ msgstr "Envía tu trabajo para que el Jurado pueda revisarlo y puntuarlo."
 
 msgid "Competing"
 msgstr "Concursando"
-
-msgid "your_rating"
-msgstr "Tu puntuación"
-
-
