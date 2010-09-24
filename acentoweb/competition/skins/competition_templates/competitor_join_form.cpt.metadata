@@ -7,4 +7,4 @@ validators = validate_emailaddr,join_form_validate
 
 [actions]
 action.success = traverse_to:string:register
-action.failure = traverse_to:string:join_form
+action.failure = traverse_to:string:competitor_join_form
