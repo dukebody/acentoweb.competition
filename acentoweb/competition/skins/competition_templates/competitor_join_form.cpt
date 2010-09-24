@@ -191,6 +191,33 @@
 
 
       <div class="field"
+           tal:define="error errors/dni | nothing;
+                       dni request/dni | nothing;"
+           tal:attributes="class python:test(error, 'field error', 'field')">
+
+        <label for="dni"
+               i18n:translate="label_dni">DNI</label>
+
+        <span class="fieldRequired" title="Required"
+              i18n:attributes="title title_required;"
+              i18n:translate="label_required">(Required)</span>
+
+              <div class="formHelp" i18n:translate="help_dni_creation">
+		Enter a DNI number
+              </div>
+
+              <div tal:content="error">Validation error output</div>
+
+              <input type="text"
+                     name="dni"
+                     id="dni"
+                     size="30"
+                     tal:attributes="value dni"
+                     />
+      </div>
+
+
+      <div class="field"
            tal:condition="not: allowEnterPassword"
            tal:define="error errors/password | nothing;
                        password request/password | nothing;"
