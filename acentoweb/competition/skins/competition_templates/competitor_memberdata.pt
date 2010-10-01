@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+  <div metal:fill-slot="main"
+       tal:define="memberdata context/portal_memberdata;
+                   selected_user request/user | user/getId;
+                   user python: context.acl_users.getUserById(selected_user)">
+
+    <tal:userexists tal:condition="user">
+      <p>
+        <span style="font-weight:bold"
+              i18n:translate="label_fullname">Fullname</span>:
+        <span tal:replace="python:user.getProperty('fullname')" />
+      </p>
+
+      <p>
+        <span style="font-weight:bold"
+              i18n:translate="label_email">E-mail</span>:
+        <span tal:replace="python:user.getProperty('email')" />
+      </p>
+
+      <p>
+        <span style="font-weight:bold"
+              i18n:translate="label_location">Location</span>:
+        <span tal:replace="python:user.getProperty('location')" />
+      </p>
+
+      <p>
+        <span style="font-weight:bold"
+              i18n:translate="label_phone_no">Phone number</span>:
+        <span tal:replace="python:user.getProperty('phone_no')" />
+      </p>
+
+      <p>
+        <span style="font-weight:bold"
+              i18n:translate="label_dni">DNI</span>:
+        <span tal:replace="python:user.getProperty('dni')" />
+      </p>
+    </tal:userexists>
+
+    <tal:nouser tal:condition="not: user">
+      The specified user doesn't exist, or you didn't specify any.
+    </tal:nouser>
+  </div>
+</body>
+</html>
