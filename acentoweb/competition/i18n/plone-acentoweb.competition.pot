@@ -66,6 +66,12 @@ msgstr ""
 msgid "A video to be submitted to a competition."
 msgstr ""
 
+msgid "Story"
+msgstr ""
+
+msgid "A story, to be submitted to a competition."
+msgstr ""
+
 # Photo/Video workflow
 
 msgid "Submit to the competition"
@@ -76,3 +82,4 @@ msgstr ""
 
 msgid "Competing"
 msgstr ""
+

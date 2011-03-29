@@ -4,6 +4,8 @@
     meta_type="Factory-based Type Information with dynamic views"/>
  <object name="Video"
     meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="Story"
+    meta_type="Factory-based Type Information with dynamic views"/>
  <object name="Competition"
     meta_type="Factory-based Type Information with dynamic views"/>
 </object>

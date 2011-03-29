@@ -14,6 +14,7 @@
  <property name="allowed_content_types">
    <element value="Photo" />
    <element value="Video" />
+   <element value="Story" />
  </property>
  <property name="allow_discussion">False</property>
 

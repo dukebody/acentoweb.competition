@@ -4,5 +4,6 @@
   <type portal_type="Competition"/>
   <type portal_type="Photo"/>
   <type portal_type="Video"/>
+  <type portal_type="Story"/>
  </factorytypes>
 </object>
