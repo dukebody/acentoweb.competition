@@ -44,5 +44,11 @@
            Products.ATContentTypes.interface.file.IATFile"
       />
 
+  <adapter
+      factory=".ratingmanager.RatingManager"
+      for="contentratings.interfaces.IRatingCategory
+           Products.ATContentTypes.interface.document.IATDocument"
+      />
+
 
 </configure>
