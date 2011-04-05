@@ -2,9 +2,10 @@ from Acquisition import aq_inner, aq_parent
 from Products.CMFCore.utils import getToolByName
 
 from zope.interface import implements
+from zope.app.interface import queryType
 
 from plone.contentratings.category import PloneRatingCategoryAdapter
-from contentratings.interfaces import IRatingManager
+from contentratings.interfaces import IRatingManager, IRatingType
 
 
 class RatingManager(PloneRatingCategoryAdapter):
@@ -50,3 +51,15 @@ class RatingManager(PloneRatingCategoryAdapter):
         user can write first."""
         assert self.can_write
         self.storage.remove_rating(username)
+
+    # Default method without security check
+    def __getattr__(self, name):
+        """If name is part of our storage interface, return the
+        attribute from the storage, checking the read_expr first.
+        """
+        rating_type = queryType(self, IRatingType)
+        # make sure it works even if the rating type isn't set yet
+        if rating_type and name in rating_type.names(True):
+            return getattr(self.storage, name)
+        else:
+            raise AttributeError, name
