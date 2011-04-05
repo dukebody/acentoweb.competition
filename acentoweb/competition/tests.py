@@ -84,6 +84,7 @@ class TestSetup(ptc.PloneTestCase):
         wt = self.portal.portal_workflow
         self.failUnless('competition_item_workflow' in wt.getChainForPortalType('Photo'))
         self.failUnless('competition_item_workflow' in wt.getChainForPortalType('Video'))
+        self.failUnless('competition_item_workflow' in wt.getChainForPortalType('Story'))
 
 
     def test_phoneno_exist(self):
