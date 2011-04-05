@@ -11,6 +11,7 @@
  <permission>View</permission>
  <permission>ATContentTypes: Add File</permission>
  <permission>ATContentTypes: Add Image</permission>
+ <permission>ATContentTypes: Add Document</permission>
  <state state_id="closed" title="Closed">
   <description>This competition doesn't accept more work submissions.</description>
   <exit-transition transition_id="open"/>
@@ -19,6 +20,9 @@
                   acquired="False">
   </permission-map>
   <permission-map name="ATContentTypes: Add Image"
+                  acquired="False">
+  </permission-map>
+  <permission-map name="ATContentTypes: Add Document"
                   acquired="False">
   </permission-map>
   <permission-map name="Access contents information"
@@ -97,6 +101,10 @@
    <permission-role>Competitor</permission-role>
   </permission-map>
   <permission-map name="ATContentTypes: Add Image"
+                  acquired="False">
+   <permission-role>Competitor</permission-role>
+  </permission-map>
+  <permission-map name="ATContentTypes: Add Document"
                   acquired="False">
    <permission-role>Competitor</permission-role>
   </permission-map>
